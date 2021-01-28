@@ -9,18 +9,26 @@
             alt="vue gallery"
           />
         </div>
-        <div class="ml-10 flex items-baseline space-x-4">
-          <!-- <a
-            href="#"
-            class=" text-white duration-300  hover:text-green-500 text-sm font-medium"
-            >Gallery</a
-          >
-          <a
-            href="#"
-            class=" text-white duration-300 hover:text-green-500 text-sm font-medium"
-            >Upload</a
-          > -->
+        <div class="flex space-x-2">
+          <div v-if="isAuth" class="ml-10 flex items-baseline space-x-4">
+            <a
+              href="#"
+              class=" text-white duration-300  hover:text-green-500 text-sm font-medium"
+              >Gallery</a
+            >
+            <a
+              href="#"
+              class=" text-white duration-300 hover:text-green-500 text-sm font-medium"
+              >Upload</a
+            >
+            <button
+              class="px-4 py-1 font-bold text-gray-100 duration-300  focus:outline-none rounded shadow hover:bg-red-500"
+            >
+              Signout
+            </button>
+          </div>
           <button
+            v-else
             class="px-4 py-1 font-bold text-gray-100 duration-300  bg-green-600 focus:outline-none rounded shadow hover:bg-green-500"
             @click="login"
           >
@@ -33,9 +41,10 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'Navbar',
+  computed: mapGetters(['isAuth']),
   methods: mapActions(['login']),
 };
 </script>
