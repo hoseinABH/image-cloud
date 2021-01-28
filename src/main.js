@@ -3,15 +3,22 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import store from './store';
 import AuthHandler from './components/AuthHandler';
+import ImageList from './components/ImageList';
+import UploadForm from './components/UploadForm';
 import './styles/tailwind.css';
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 
-const router = new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
-  routes: [{ path: '/oauth2/callback', component: AuthHandler }],
+  linkExactActiveClass: 'text-green-500',
+  routes: [
+    { path: '/', component: ImageList },
+    { path: '/upload', component: UploadForm },
+    { path: '/oauth2/callback', component: AuthHandler },
+  ],
 });
 
 new Vue({

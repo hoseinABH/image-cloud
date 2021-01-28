@@ -3,26 +3,29 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center w-full justify-between h-20">
         <div class="">
-          <img
-            class="h-10 w-16 cursor-pointer"
-            src="../assets/mastery.png"
-            alt="vue gallery"
-          />
+          <router-link to="/">
+            <img
+              class="h-10 w-16 cursor-pointer"
+              src="../assets/mastery.png"
+              alt="vue gallery"
+            />
+          </router-link>
         </div>
         <div class="flex space-x-2">
-          <div v-if="isAuth" class="ml-10 flex items-baseline space-x-4">
-            <a
-              href="#"
-              class=" text-white duration-300  hover:text-green-500 text-sm font-medium"
-              >Gallery</a
+          <div v-if="isAuth" class="ml-10 flex items-baseline space-x-8">
+            <router-link
+              to="/"
+              class="text-white duration-300  hover:text-green-500 text-sm font-medium"
+              >Gallery</router-link
             >
-            <a
-              href="#"
+            <router-link
+              to="/upload"
               class=" text-white duration-300 hover:text-green-500 text-sm font-medium"
-              >Upload</a
+              >Upload</router-link
             >
             <button
-              class="px-4 py-1 font-bold text-gray-100 duration-300  focus:outline-none rounded shadow hover:bg-red-500"
+              @click="logout"
+              class="px-4 py-2 border-b-4 border-red-500 font-bold text-gray-100 duration-300  focus:outline-none rounded shadow hover:bg-red-500"
             >
               Signout
             </button>
@@ -45,6 +48,6 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'Navbar',
   computed: mapGetters(['isAuth']),
-  methods: mapActions(['login']),
+  methods: mapActions(['login', 'logout']),
 };
 </script>
