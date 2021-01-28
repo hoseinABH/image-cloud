@@ -11,8 +11,11 @@
             />
           </router-link>
         </div>
-        <div class="flex space-x-2">
-          <div v-if="isAuth" class="ml-10 flex items-baseline space-x-8">
+        <div class="flex">
+          <div
+            v-if="isAuth"
+            class="ml-10 flex items-baseline space-x-6 sm:space-x-8"
+          >
             <router-link
               to="/"
               class="text-white duration-300  hover:text-green-500 text-sm font-medium"
