@@ -1,10 +1,10 @@
 <template>
-  <nav class="bg-gray-900 dark:bg-green-50">
+  <nav class="bg-gray-900 border-b border-gray-700 dark:bg-green-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center w-full justify-between h-20">
         <div class="">
           <img
-            class="h-10 w-16 transform hover:-rotate-90 duration-500 cursor-pointer"
+            class="h-10 w-16 cursor-pointer"
             src="../assets/mastery.png"
             alt="vue gallery"
           />
@@ -22,6 +22,7 @@
           > -->
           <button
             class="px-4 py-1 font-bold text-gray-100 duration-300  bg-green-600 focus:outline-none rounded shadow hover:bg-green-500"
+            @click="login"
           >
             Signin
           </button>
@@ -32,7 +33,9 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'Navbar',
+  methods: mapActions(['login']),
 };
 </script>
